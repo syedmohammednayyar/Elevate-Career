@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Elevate Career</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-text">Elevate Career</a>
+            </div>
+            <nav class="nav">
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Courses</h1>
+                <p>Choose from our comprehensive range of industry-focused training programs</p>
+            </div>
+        </section>
+
+        <!-- Search and Filter -->
+        <section class="courses-search-section">
+            <div class="container">
+                <input type="text" id="courseSearch" class="course-search-input" placeholder="Search courses...">
+            </div>
+        </section>
+
+        <!-- Courses List -->
+        <section class="courses-list-section">
+            <div class="container">
+                <div class="courses-list-grid" id="coursesList">
+                    <!-- Course Card 1 -->
+                    <div class="course-list-card" data-course="Data Science">
+                        <h3>Data Science</h3>
+                        <p>Master Python, statistics, machine learning, SQL, and data visualization. Build predictive models and work with real datasets.</p>
+                        <div class="course-list-meta">
+                            <span>📅 6 Months</span>
+                            <span>🌐 Online / Classroom</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="scrollToCourse('data-science')">View Details</button>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="course-list-card" data-course="Java Full Stack">
+                        <h3>Java Full Stack</h3>
+                        <p>Learn core Java, Spring Boot, HTML/CSS/JavaScript, and database design. Develop complete web applications.</p>
+                        <div class="course-list-meta">
+                            <span>📅 5 Months</span>
+                            <span>🌐 Online / Classroom</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="scrollToCourse('java-fullstack')">View Details</button>
+                    </div>
+
+                    <!-- Course Card 3 -->
+                    <div class="course-list-card" data-course="Python Full Stack">
+                        <h3>Python Full Stack</h3>
+                        <p>Develop web applications with Django and Flask. Master databases, REST APIs, and modern frontend technologies.</p>
+                        <div class="course-list-meta">
+                            <span>📅 5 Months</span>
+                            <span>🌐 Online / Classroom</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="scrollToCourse('python-fullstack')">View Details</button>
+                    </div>
+
+                    <!-- Course Card 4 -->
+                    <div class="course-list-card" data-course="Software Testing">
+                        <h3>Software Testing</h3>
+                        <p>Learn manual testing, automation with Selenium, and API testing. Master QA methodologies and best practices.</p>
+                        <div class="course-list-meta">
+                            <span>📅 4 Months</span>
+                            <span>🌐 Online / Classroom</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="scrollToCourse('software-testing')">View Details</button>
+                    </div>
+
+                    <!-- Course Card 5 -->
+                    <div class="course-list-card" data-course="API Testing">
+                        <h3>API Testing & REST Services</h3>
+                        <p>Master REST API concepts, Postman, API automation, and performance testing. Essential for modern software testing.</p>
+                        <div class="course-list-meta">
+                            <span>📅 3 Months</span>
+                            <span>🌐 Online</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="scrollToCourse('api-testing')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Course Section - Data Science -->
+        <section class="detailed-course" id="data-science">
+            <div class="course-header-block">
+                <div class="container">
+                    <h1>Data Science Course in Bangalore</h1>
+                    <p class="course-subtitle">Master data science and machine learning with hands-on projects and guaranteed placement support</p>
+                    
+                    <div class="course-badges">
+                        <span class="badge">6 Months | 200+ Hours</span>
+                        <span class="badge">Online / Classroom / Hybrid</span>
+                        <span class="badge">Next Batch: January 15, 2025</span>
+                        <span class="badge">100% Placement Assistance</span>
+                    </div>
+
+                    <div class="course-header-buttons">
+                        <button class="btn btn-primary" onclick="openCallbackModal()">Enroll Now</button>
+                        <a href="#" class="btn btn-secondary">Download Brochure</a>
+                        <button class="btn btn-outline" onclick="scrollToContact()">Talk To Counselor</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-main-content">
+                <div class="container">
+                    <div class="course-columns">
+                        <!-- Left Column -->
+                        <div class="course-left">
+                            <div class="course-about">
+                                <h2>About This Course</h2>
+                                <p>Our Data Science course is designed for aspiring data professionals who want to turn raw data into actionable insights. This comprehensive program covers the complete data science lifecycle from data collection and cleaning to building production-ready machine learning models.</p>
+                                <p>Whether you're a fresh graduate, career changer, or experienced professional looking to upskill, this course will equip you with both theoretical knowledge and practical skills demanded by top companies. You'll work on real-world datasets, build a portfolio, and learn from industry practitioners.</p>
+                            </div>
+
+                            <div class="course-highlights">
+                                <h3>Key Highlights</h3>
+                                <ul>
+                                    <li>✓ Master Python programming for data science</li>
+                                    <li>✓ Work with Pandas, NumPy, Matplotlib, and Seaborn</li>
+                                    <li>✓ SQL database design and optimization</li>
+                                    <li>✓ Statistical analysis and A/B testing</li>
+                                    <li>✓ Machine learning algorithms (supervised & unsupervised)</li>
+                                    <li>✓ Deep learning fundamentals with TensorFlow</li>
+                                    <li>✓ Business intelligence and data visualization</li>
+                                    <li>✓ 4+ live projects on real-world datasets</li>
+                                </ul>
+                            </div>
+
+                            <div class="course-eligibility">
+                                <h3>Who Should Enroll?</h3>
+                                <ul>
+                                    <li>Engineering graduates (all streams)</li>
+                                    <li>MCA, MSc graduates seeking career change</li>
+                                    <li>Working professionals transitioning to data science</li>
+                                    <li>Analytics and finance professionals looking to upskill</li>
+                                    <li>Anyone with a passion for data-driven decision making</li>
+                                </ul>
+                            </div>
+
+                            <div class="course-prerequisites">
+                                <h3>Prerequisites</h3>
+                                <ul>
+                                    <li>Basic mathematics (algebra and statistics helpful)</li>
+                                    <li>Logical thinking and problem-solving ability</li>
+                                    <li>Willingness to learn and practice coding</li>
+                                    <li>No prior programming experience required</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right Column (Sticky) -->
+                        <div class="course-right">
+                            <div class="course-summary-card">
+                                <h3>Course Summary</h3>
+                                
+                                <div class="price-section">
+                                    <p class="price-label">Course Fee</p>
+                                    <p class="price-original">₹85,000</p>
+                                    <p class="price-discount">₹52,000</p>
+                                    <p class="price-note">*Limited time offer</p>
+                                </div>
+
+                                <div class="emi-section">
+                                    <p class="emi-label">EMI Available</p>
+                                    <p>₹8,667/month for 6 months</p>
+                                </div>
+
+                                <div class="batch-section">
+                                    <p class="batch-label">Next Batch</p>
+                                    <p>January 15, 2025</p>
+                                    <p class="batch-time">2:00 PM - 4:00 PM (IST)</p>
+                                </div>
+
+                                <div class="benefits-section">
+                                    <p class="benefits-label">What You Get</p>
+                                    <ul class="benefits-list">
+                                        <li>✓ Lifetime course access</li>
+                                        <li>✓ 200+ hours of content</li>
+                                        <li>✓ 4+ capstone projects</li>
+                                        <li>✓ Industry-recognized certificate</li>
+                                        <li>✓ Career coaching & placement support</li>
+                                    </ul>
+                                </div>
+
+                                <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="openCallbackModal()">Request Call Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills & Tools Section -->
+            <div class="skills-tools-section">
+                <div class="container">
+                    <div class="skills-tools-grid">
+                        <div class="skills-card">
+                            <h3>Skills You'll Learn</h3>
+                            <ul>
+                                <li>Python Programming</li>
+                                <li>Data Manipulation (Pandas)</li>
+                                <li>Statistical Analysis</li>
+                                <li>Machine Learning</li>
+                                <li>Deep Learning</li>
+                                <li>Data Visualization</li>
+                                <li>SQL & Databases</li>
+                                <li>Business Analytics</li>
+                            </ul>
+                        </div>
+
+                        <div class="tools-card">
+                            <h3>Tools You'll Master</h3>
+                            <ul>
+                                <li>Python (NumPy, Pandas, Matplotlib)</li>
+                                <li>Jupyter Notebook</li>
+                                <li>SQL & MySQL</li>
+                                <li>Scikit-Learn</li>
+                                <li>TensorFlow & Keras</li>
+                                <li>Tableau / Power BI</li>
+                                <li>Git & GitHub</li>
+                                <li>Google Colab</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Curriculum Section -->
+            <div class="curriculum-section">
+                <div class="container">
+                    <h2>Course Curriculum</h2>
+                    
+                    <div class="accordion" id="curriculumAccordion">
+                        <!-- Module 1 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-module="1">
+                                Module 1: Introduction to Data Science & Python Basics
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="module-1" style="display: none;">
+                                <p>Get started with data science fundamentals and Python programming essentials.</p>
+                                <ul>
+                                    <li>What is Data Science and its applications</li>
+                                    <li>Python setup, IDEs, and environments</li>
+                                    <li>Python basics: variables, data types, operators</li>
+                                    <li>Control structures: loops and conditionals</li>
+                                    <li>Functions and modules</li>
+                                    <li>File handling and exceptions</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Module 2 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-module="2">
+                                Module 2: Data Handling with NumPy & Pandas
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="module-2" style="display: none;">
+                                <p>Master data manipulation and preparation using industry-standard libraries.</p>
+                                <ul>
+                                    <li>NumPy: arrays, operations, and indexing</li>
+                                    <li>Pandas: DataFrames and Series</li>
+                                    <li>Data loading and inspection</li>
+                                    <li>Data cleaning and missing value handling</li>
+                                    <li>Data transformation and reshaping</li>
+                                    <li>Grouping and aggregation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Module 3 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-module="3">
+                                Module 3: Data Visualization & Exploratory Data Analysis
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="module-3" style="display: none;">
+                                <p>Learn to visualize data effectively and conduct comprehensive exploratory analysis.</p>
+                                <ul>
+                                    <li>Matplotlib fundamentals and customization</li>
+                                    <li>Seaborn for statistical visualization</li>
+                                    <li>Creating interactive visualizations</li>
+                                    <li>Exploratory Data Analysis (EDA) techniques</li>
+                                    <li>Correlation and distribution analysis</li>
+                                    <li>Feature relationships and outlier detection</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Module 4 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-module="4">
+                                Module 4: Statistics for Data Science
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="module-4" style="display: none;">
+                                <p>Master statistical concepts crucial for data science and hypothesis testing.</p>
+                                <ul>
+                                    <li>Descriptive statistics and distributions</li>
+                                    <li>Probability concepts and Bayes' theorem</li>
+                                    <li>Hypothesis testing and p-values</li>
+                                    <li>Correlation and regression analysis</li>
+                                    <li>Sampling and confidence intervals</li>
+                                    <li>Statistical inference techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Module 5 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-module="5">
+                                Module 5: Machine Learning Fundamentals
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="module-5" style="display: none;">
+                                <p>Build and deploy predictive models using supervised and unsupervised learning.</p>
+                                <ul>
+                                    <li>Supervised Learning: Classification & Regression</li>
+                                    <li>Decision Trees, Random Forests, and Ensemble Methods</li>
+                                    <li>Unsupervised Learning: Clustering and Dimensionality Reduction</li>
+                                    <li>K-means, Hierarchical Clustering, PCA</li>
+                                    <li>Model evaluation and cross-validation</li>
+                                    <li>Hyperparameter tuning and model optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Module 6 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-module="6">
+                                Module 6: SQL for Data Analysis
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="module-6" style="display: none;">
+                                <p>Query and analyze data from databases using SQL.</p>
+                                <ul>
+                                    <li>Database concepts and design</li>
+                                    <li>SQL SELECT queries and filtering</li>
+                                    <li>JOINs, subqueries, and complex queries</li>
+                                    <li>Aggregation and window functions</li>
+                                    <li>Data integrity and constraints</li>
+                                    <li>Performance optimization techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Module 7 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-module="7">
+                                Module 7: Capstone Project & Interview Preparation
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="module-7" style="display: none;">
+                                <p>Complete end-to-end projects and prepare for job interviews.</p>
+                                <ul>
+                                    <li>Real-world project implementation</li>
+                                    <li>Portfolio building and GitHub deployment</li>
+                                    <li>Technical interview preparation</li>
+                                    <li>Behavioral interview strategies</li>
+                                    <li>Mock interviews with industry professionals</li>
+                                    <li>Resume review and optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="projects-section">
+                <div class="container">
+                    <h2>Capstone Projects</h2>
+                    <p class="section-subtitle">Build real-world projects that showcase your data science expertise</p>
+
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h3>Customer Churn Analysis</h3>
+                            <p class="project-domain">Domain: Telecom</p>
+                            <p>Analyze customer behavior patterns and build predictive models to identify customers likely to churn. Implement retention strategies based on your insights.</p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Sales Forecasting Dashboard</h3>
+                            <p class="project-domain">Domain: Retail</p>
+                            <p>Create an interactive sales forecasting model and dashboard. Use time-series analysis to predict future trends and optimize inventory management.</p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Credit Risk Assessment</h3>
+                            <p class="project-domain">Domain: Finance</p>
+                            <p>Build a machine learning model to assess credit risk. Implement classification algorithms and create actionable recommendations for lending decisions.</p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Healthcare Patient Analytics</h3>
+                            <p class="project-domain">Domain: Healthcare</p>
+                            <p>Analyze patient data to identify disease patterns and predict patient outcomes. Build models to support clinical decision-making and resource allocation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Support & Certification -->
+            <div class="career-support-section">
+                <div class="container">
+                    <h2>Career Support & Certification</h2>
+
+                    <div class="support-grid">
+                        <div class="support-card">
+                            <h3>🏆 Course Certification</h3>
+                            <p>Upon successful completion, receive a recognized certificate from Elevate Career validating your Data Science expertise. Display your achievement on LinkedIn and share with recruiters.</p>
+                        </div>
+
+                        <div class="support-card">
+                            <h3>🎯 Career Support</h3>
+                            <ul>
+                                <li>✓ Resume review and optimization</li>
+                                <li>✓ Portfolio guidance and project showcase</li>
+                                <li>✓ Mock interviews with real scenarios</li>
+                                <li>✓ Interview scheduling assistance</li>
+                                <li>✓ Salary negotiation coaching</li>
+                                <li>✓ Direct company referrals</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQs -->
+            <div class="faq-section">
+                <div class="container">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-faq="1">
+                                What is the total duration of the course?
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="faq-1" style="display: none;">
+                                <p>The Data Science course spans 6 months with a total of 200+ hours of content. This includes classroom/online sessions, projects, and self-study. The pace is intensive but manageable for working professionals.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-faq="2">
+                                Do I need prior programming experience?
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="faq-2" style="display: none;">
+                                <p>No, prior programming experience is not required. We start from basics with Python fundamentals. However, basic logical thinking and mathematical knowledge (algebra, statistics) would be helpful.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-faq="3">
+                                What is the placement rate and support?
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="faq-3" style="display: none;">
+                                <p>We have an 85% placement rate within 3 months of course completion. Our placement team provides comprehensive support including resume reviews, mock interviews, and direct referrals to partner companies.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-faq="4">
+                                Can I access course recordings?
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="faq-4" style="display: none;">
+                                <p>Yes, all sessions are recorded. You get lifetime access to course materials, recordings, and project resources. This allows you to learn at your own pace and revisit topics whenever needed.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-faq="5">
+                                Do you offer EMI or payment plans?
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="faq-5" style="display: none;">
+                                <p>Yes, we offer flexible EMI options. You can split the course fee into monthly installments of ₹8,667 for 6 months with no additional interest. Contact our counselor for more payment plan options.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-faq="6">
+                                What is the job market outlook for data scientists?
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="faq-6" style="display: none;">
+                                <p>Data Science is one of the fastest-growing fields with high demand across industries. Data scientists earn competitive salaries (₹6-15 LPA for entry-level to mid-level positions) with excellent career growth opportunities.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-faq="7">
+                                Will the course teach me advanced topics like deep learning?
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="faq-7" style="display: none;">
+                                <p>Yes, Module 5 covers deep learning fundamentals using TensorFlow and Keras. We also touch on neural networks and practical applications. For advanced specialization, we offer separate advanced deep learning modules.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header" data-faq="8">
+                                Can I switch between online and classroom modes?
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            <div class="accordion-body" id="faq-8" style="display: none;">
+                                <p>Yes, we offer flexible learning modes. You can attend classroom sessions when available and switch to online for flexibility. We recommend consistent mode selection for optimal learning experience, but we accommodate occasional switches.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simplified Course Sections -->
+        <!-- Java Full Stack -->
+        <section class="detailed-course simplified" id="java-fullstack">
+            <div class="container">
+                <h2>Java Full Stack Development Course</h2>
+                
+                <div class="simple-course-content">
+                    <div class="course-overview">
+                        <h3>Course Overview</h3>
+                        <p>Comprehensive full-stack development training using Java technologies. Learn backend development with Spring Boot and frontend technologies to build complete, production-ready applications.</p>
+                    </div>
+
+                    <div class="course-details-grid">
+                        <div>
+                            <h4>Duration & Mode</h4>
+                            <p>5 Months | Online / Classroom</p>
+                        </div>
+                        <div>
+                            <h4>Next Batch</h4>
+                            <p>February 1, 2025</p>
+                        </div>
+                        <div>
+                            <h4>Course Fee</h4>
+                            <p>₹48,000 (Was ₹75,000)</p>
+                        </div>
+                    </div>
+
+                    <div class="highlights-section">
+                        <h3>Key Highlights</h3>
+                        <ul>
+                            <li>Core Java and Object-Oriented Programming</li>
+                            <li>Spring Framework and Spring Boot</li>
+                            <li>Microservices Architecture</li>
+                            <li>HTML, CSS, JavaScript & responsive design</li>
+                            <li>Database design and optimization</li>
+                            <li>REST API development</li>
+                            <li>3+ real-world capstone projects</li>
+                            <li>Placement assistance included</li>
+                        </ul>
+                    </div>
+
+                    <div class="curriculum-preview">
+                        <h3>What You'll Learn</h3>
+                        <ul class="curriculum-list">
+                            <li><strong>Module 1:</strong> Java Fundamentals & OOP Concepts</li>
+                            <li><strong>Module 2:</strong> Spring Framework & Spring Boot</li>
+                            <li><strong>Module 3:</strong> Database & SQL</li>
+                            <li><strong>Module 4:</strong> Frontend Technologies (HTML, CSS, JavaScript)</li>
+                            <li><strong>Module 5:</strong> Full Stack Application Development</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="openCallbackModal()">Enroll Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Software Testing -->
+        <section class="detailed-course simplified" id="software-testing">
+            <div class="container">
+                <h2>Software Testing (Manual + Automation) Course</h2>
+                
+                <div class="simple-course-content">
+                    <div class="course-overview">
+                        <h3>Course Overview</h3>
+                        <p>Master comprehensive software testing methodologies including manual testing, test automation, and quality assurance. Learn industry-standard tools and practices used by leading companies.</p>
+                    </div>
+
+                    <div class="course-details-grid">
+                        <div>
+                            <h4>Duration & Mode</h4>
+                            <p>4 Months | Online / Classroom</p>
+                        </div>
+                        <div>
+                            <h4>Next Batch</h4>
+                            <p>January 20, 2025</p>
+                        </div>
+                        <div>
+                            <h4>Course Fee</h4>
+                            <p>₹38,000 (Was ₹60,000)</p>
+                        </div>
+                    </div>
+
+                    <div class="highlights-section">
+                        <h3>Key Highlights</h3>
+                        <ul>
+                            <li>Manual Testing & SDLC</li>
+                            <li>Test Case Design & Execution</li>
+                            <li>Selenium WebDriver Automation</li>
+                            <li>TestNG Framework</li>
+                            <li>API Testing with Postman</li>
+                            <li>Performance & Load Testing</li>
+                            <li>3+ automation projects</li>
+                            <li>Career support & placement assistance</li>
+                        </ul>
+                    </div>
+
+                    <div class="curriculum-preview">
+                        <h3>What You'll Learn</h3>
+                        <ul class="curriculum-list">
+                            <li><strong>Module 1:</strong> SDLC & Manual Testing Fundamentals</li>
+                            <li><strong>Module 2:</strong> Test Case Design & Documentation</li>
+                            <li><strong>Module 3:</strong> Selenium & Test Automation</li>
+                            <li><strong>Module 4:</strong> API Testing & Performance Testing</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="openCallbackModal()">Enroll Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Testing -->
+        <section class="detailed-course simplified" id="api-testing">
+            <div class="container">
+                <h2>API Testing & REST Services Course</h2>
+                
+                <div class="simple-course-content">
+                    <div class="course-overview">
+                        <h3>Course Overview</h3>
+                        <p>Specialized course on API testing and REST services. Master modern API testing techniques and tools essential for testing microservices and cloud-based applications.</p>
+                    </div>
+
+                    <div class="course-details-grid">
+                        <div>
+                            <h4>Duration & Mode</h4>
+                            <p>3 Months | Online</p>
+                        </div>
+                        <div>
+                            <h4>Next Batch</h4>
+                            <p>February 10, 2025</p>
+                        </div>
+                        <div>
+                            <h4>Course Fee</h4>
+                            <p>₹25,000 (Was ₹40,000)</p>
+                        </div>
+                    </div>
+
+                    <div class="highlights-section">
+                        <h3>Key Highlights</h3>
+                        <ul>
+                            <li>REST API Fundamentals</li>
+                            <li>Postman for API Testing</li>
+                            <li>API Test Automation with RestAssured</li>
+                            <li>Performance & Security Testing</li>
+                            <li>CI/CD Integration</li>
+                            <li>Real-world API testing scenarios</li>
+                            <li>2+ capstone projects</li>
+                            <li>100% placement assistance</li>
+                        </ul>
+                    </div>
+
+                    <div class="curriculum-preview">
+                        <h3>What You'll Learn</h3>
+                        <ul class="curriculum-list">
+                            <li><strong>Module 1:</strong> REST API Concepts & HTTP Protocol</li>
+                            <li><strong>Module 2:</strong> API Testing with Postman</li>
+                            <li><strong>Module 3:</strong> API Automation with Java</li>
+                            <li><strong>Module 4:</strong> Security & Performance Testing</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="openCallbackModal()">Enroll Now</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Request Call Back Modal -->
+    <div class="modal" id="callbackModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2>Request a Call Back</h2>
+            <form id="callbackForm" class="callback-form">
+                <div class="form-group">
+                    <label for="cbName">Full Name *</label>
+                    <input type="text" id="cbName" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbMobile">Mobile Number *</label>
+                    <input type="tel" id="cbMobile" name="mobile" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbEmail">Email *</label>
+                    <input type="email" id="cbEmail" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cbDegree">Degree</label>
+                        <select id="cbDegree" name="degree">
+                            <option value="">Select Degree</option>
+                            <option value="BE/BTech">BE/BTech</option>
+                            <option value="BCA/BSc">BCA/BSc</option>
+                            <option value="BCom">BCom</option>
+                            <option value="MCA">MCA</option>
+                            <option value="ME/MTech">ME/MTech</option>
+                            <option value="MBA">MBA</option>
+                            <option value="MSc">MSc</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cbStream">Stream</label>
+                        <select id="cbStream" name="stream">
+                            <option value="">Select Stream</option>
+                            <option value="CS">CS</option>
+                            <option value="IT">IT</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="IS">IS</option>
+                            <option value="ME">ME</option>
+                            <option value="CIV">CIV</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbCourse">Preferred Course</label>
+                    <input type="text" id="cbCourse" name="course" placeholder="e.g., Data Science, Java Full Stack">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cbCity">City</label>
+                        <input type="text" id="cbCity" name="city">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cbMode">Preferred Mode</label>
+                        <select id="cbMode" name="mode">
+                            <option value="">Select Mode</option>
+                            <option value="Online">Online</option>
+                            <option value="Classroom">Classroom</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="form-message" id="callbackMessage" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Elevate Career</h4>
+                    <p>Empowering IT careers with practical training, industry exposure, and guaranteed placement support since 2015.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📍 Bangalore, India</p>
+                    <p>📧 info@Elevate Career.edu</p>
+                    <p>📞 +91-99999-00000</p>
+                    <p>⏰ Mon-Fri: 9 AM - 6 PM IST</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elevate Career. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Career - Home</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-text">Elevate Career</a>
+            </div>
+            <nav class="nav">
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Empowering Your IT Career</h1>
+                <p class="hero-subtitle">Master practical IT skills with industry experts. Get job-ready training, hands-on projects, and guaranteed placement assistance.</p>
+                <div class="hero-buttons">
+                    <a href="courses.html" class="btn btn-primary">View Courses</a>
+                    <button class="btn btn-secondary" id="callbackBtnHero">Request a Call Back</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Degree & Stream Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <h2>Find the Right Course For You</h2>
+                <p class="section-subtitle">Select your educational background to get personalized course recommendations</p>
+
+                <div class="filter-groups">
+                    <!-- Degree Filter -->
+                    <div class="filter-group">
+                        <h3>From Various Degrees</h3>
+                        <div class="button-grid">
+                            <button class="filter-btn degree-btn" data-degree="BE/BTech">BE/BTech</button>
+                            <button class="filter-btn degree-btn" data-degree="BCA/BSc">BCA/BSc</button>
+                            <button class="filter-btn degree-btn" data-degree="BCom">BCom</button>
+                            <button class="filter-btn degree-btn" data-degree="MCA">MCA</button>
+                            <button class="filter-btn degree-btn" data-degree="ME/MTech">ME/MTech</button>
+                            <button class="filter-btn degree-btn" data-degree="MBA">MBA</button>
+                            <button class="filter-btn degree-btn" data-degree="MSc">MSc</button>
+                            <button class="filter-btn degree-btn" data-degree="Others">Others</button>
+                        </div>
+                    </div>
+
+                    <!-- Stream Filter -->
+                    <div class="filter-group">
+                        <h3>From Various Streams</h3>
+                        <div class="button-grid">
+                            <button class="filter-btn stream-btn" data-stream="CS">CS</button>
+                            <button class="filter-btn stream-btn" data-stream="IT">IT</button>
+                            <button class="filter-btn stream-btn" data-stream="ECE">ECE</button>
+                            <button class="filter-btn stream-btn" data-stream="EEE">EEE</button>
+                            <button class="filter-btn stream-btn" data-stream="IS">IS</button>
+                            <button class="filter-btn stream-btn" data-stream="ME">ME</button>
+                            <button class="filter-btn stream-btn" data-stream="CIV">CIV</button>
+                            <button class="filter-btn stream-btn" data-stream="Others">Others</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation Panel -->
+                <div class="recommendation-panel" id="recommendationPanel" style="display: none;">
+                    <h4 id="recommendationTitle"></h4>
+                    <ul id="recommendationList"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Preview Section -->
+        <section class="courses-preview">
+            <div class="container">
+                <h2>Featured Courses</h2>
+                <p class="section-subtitle">Explore our most popular, job-oriented training programs</p>
+
+                <div class="courses-grid">
+                    <!-- Course Card 1 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Data Science</h3>
+                        </div>
+                        <p class="course-description">Learn Python, statistics, machine learning, and data visualization. Build real-world projects and prepare for data science roles.</p>
+                        <div class="course-meta">
+                            <span class="duration">6 Months</span>
+                            <span class="mode">Online / Classroom</span>
+                        </div>
+                        <a href="courses.html#data-science" class="btn btn-outline">View Details</a>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Java Full Stack</h3>
+                        </div>
+                        <p class="course-description">Master Java, Spring Boot, and web technologies. Develop end-to-end applications with complete full-stack expertise.</p>
+                        <div class="course-meta">
+                            <span class="duration">5 Months</span>
+                            <span class="mode">Online / Classroom</span>
+                        </div>
+                        <a href="courses.html#java-fullstack" class="btn btn-outline">View Details</a>
+                    </div>
+
+                    <!-- Course Card 3 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Python Full Stack</h3>
+                        </div>
+                        <p class="course-description">Learn Django, Flask, databases, and frontend technologies. Create robust web applications with Python.</p>
+                        <div class="course-meta">
+                            <span class="duration">5 Months</span>
+                            <span class="mode">Online / Classroom</span>
+                        </div>
+                        <a href="courses.html" class="btn btn-outline">View Details</a>
+                    </div>
+
+                    <!-- Course Card 4 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Software Testing</h3>
+                        </div>
+                        <p class="course-description">Master manual testing, automation, and QA methodologies. Learn industry-standard tools and best practices.</p>
+                        <div class="course-meta">
+                            <span class="duration">4 Months</span>
+                            <span class="mode">Online / Classroom</span>
+                        </div>
+                        <a href="courses.html" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <h2>Why Choose Elevate Career?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Industry-Relevant Curriculum</h3>
+                        <p>Our courses are designed with input from industry experts, ensuring you learn the latest technologies and practices demanded by employers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💻</div>
+                        <h3>Hands-on Projects</h3>
+                        <p>Work on real-world projects that mirror industry scenarios. Build a portfolio that impresses recruiters and demonstrates your capabilities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Placement Assistance</h3>
+                        <p>Get dedicated support for resume building, interview preparation, and job placement. Our 85% placement rate speaks for itself.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍🏫</div>
+                        <h3>Experienced Trainers</h3>
+                        <p>Learn from industry professionals with 10+ years of experience. Our trainers bring real-world knowledge and mentorship to every session.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>Success Stories</h2>
+                <p class="section-subtitle">Hear from our graduates who landed their dream jobs</p>
+
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"The Data Science course was incredibly comprehensive. The practical projects helped me build a strong portfolio, and I got placed within 2 weeks of completion!"</p>
+                            <div class="testimonial-meta">
+                                <strong>Priya Kumar</strong>
+                                <span class="testimonial-course">Data Science | Placed at TechCorp</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"The Java Full Stack training gave me confidence to take on complex projects. My trainer's industry experience was invaluable. Highly recommended!"</p>
+                            <div class="testimonial-meta">
+                                <strong>Arjun Singh</strong>
+                                <span class="testimonial-course">Java Full Stack | Placed at InnovateSoft</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"As someone from a non-tech background, I was nervous. But the supportive trainers and structured curriculum made everything clear. Now I'm a QA Engineer!"</p>
+                            <div class="testimonial-meta">
+                                <strong>Neha Patel</strong>
+                                <span class="testimonial-course">Software Testing | Placed at QualityFirst</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"The placement team was amazing. They helped me refine my resume, conducted mock interviews, and connected me with the right company. I couldn't have done it without them!"</p>
+                            <div class="testimonial-meta">
+                                <strong>Rohan Verma</strong>
+                                <span class="testimonial-course">Python Full Stack | Placed at WebSystems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-nav">
+                    <button class="testimonial-prev" id="testimonialPrev">❮</button>
+                    <button class="testimonial-next" id="testimonialNext">❯</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Request Call Back Modal -->
+    <div class="modal" id="callbackModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2>Request a Call Back</h2>
+            <form id="callbackForm" class="callback-form">
+                <div class="form-group">
+                    <label for="cbName">Full Name *</label>
+                    <input type="text" id="cbName" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbMobile">Mobile Number *</label>
+                    <input type="tel" id="cbMobile" name="mobile" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbEmail">Email *</label>
+                    <input type="email" id="cbEmail" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cbDegree">Degree</label>
+                        <select id="cbDegree" name="degree">
+                            <option value="">Select Degree</option>
+                            <option value="BE/BTech">BE/BTech</option>
+                            <option value="BCA/BSc">BCA/BSc</option>
+                            <option value="BCom">BCom</option>
+                            <option value="MCA">MCA</option>
+                            <option value="ME/MTech">ME/MTech</option>
+                            <option value="MBA">MBA</option>
+                            <option value="MSc">MSc</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cbStream">Stream</label>
+                        <select id="cbStream" name="stream">
+                            <option value="">Select Stream</option>
+                            <option value="CS">CS</option>
+                            <option value="IT">IT</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="IS">IS</option>
+                            <option value="ME">ME</option>
+                            <option value="CIV">CIV</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbCourse">Preferred Course</label>
+                    <input type="text" id="cbCourse" name="course" placeholder="e.g., Data Science, Java Full Stack">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cbCity">City</label>
+                        <input type="text" id="cbCity" name="city">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cbMode">Preferred Mode</label>
+                        <select id="cbMode" name="mode">
+                            <option value="">Select Mode</option>
+                            <option value="Online">Online</option>
+                            <option value="Classroom">Classroom</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="form-message" id="callbackMessage" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Elevate Career</h4>
+                    <p>Empowering IT careers with practical training, industry exposure, and guaranteed placement support since 2015.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📍 Bangalore, India</p>
+                    <p>📧 info@Elevate Career.edu</p>
+                    <p>📞 +91-99999-00000</p>
+                    <p>⏰ Mon-Fri: 9 AM - 6 PM IST</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elevate Career. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

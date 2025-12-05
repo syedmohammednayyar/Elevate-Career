@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Elevate Career</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-text">Elevate Career</a>
+            </div>
+            <nav class="nav">
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Get in Touch</h1>
+                <p>We're here to help you on your IT career journey</p>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="contact-info-section">
+            <div class="container">
+                <div class="contact-info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Visit Us</h3>
+                        <p>Elevate Career<br>BTM Layout, Bangalore<br>Karnataka, India - 560029</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h3>Call Us</h3>
+                        <p>+91-99999-00000<br>+91-88888-11111<br>Support: 9 AM - 6 PM (IST)</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <h3>Email Us</h3>
+                        <p>info@Elevate Career.edu<br>admissions@Elevate Career.edu<br>careers@Elevate Career.edu</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">⏰</div>
+                        <h3>Working Hours</h3>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <h2>Send us a Message</h2>
+                        <p>Have a question? Fill out the form below and we'll get back to you soon.</p>
+                    </div>
+
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="contactName">Full Name *</label>
+                            <input type="text" id="contactName" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address *</label>
+                            <input type="email" id="contactEmail" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number *</label>
+                            <input type="tel" id="contactPhone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <input type="text" id="contactSubject" name="subject" placeholder="What is this about?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Message *</label>
+                            <textarea id="contactMessage" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    <div class="form-message" id="contactMessage" style="display: none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Placeholder -->
+        <section class="map-section">
+            <div class="map-placeholder">
+                <p>📍 Map Location</p>
+                <p style="font-size: 14px; color: #888;">Elevate Career, Bangalore</p>
+            </div>
+        </section>
+
+        <!-- Branches Section -->
+        <section class="branches-section">
+            <div class="container">
+                <h2>Our Branches</h2>
+                <p class="section-subtitle">Visit any of our training centers across major cities</p>
+
+                <div class="branches-grid">
+                    <!-- Branch 1 -->
+                    <div class="branch-card">
+                        <h3>Bangalore - BTM Layout</h3>
+                        <div class="branch-info">
+                            <p><strong>Address:</strong><br>123 Tech Park, BTM Layout<br>Bangalore - 560029</p>
+                            <p><strong>Phone:</strong><br>+91-99999-00000</p>
+                            <p><strong>Hours:</strong><br>Mon-Fri: 9 AM - 6 PM<br>Sat: 10 AM - 4 PM</p>
+                        </div>
+                        <button class="btn btn-outline" onclick="openCallbackModal()">Get Directions</button>
+                    </div>
+
+                    <!-- Branch 2 -->
+                    <div class="branch-card">
+                        <h3>Bangalore - Marathahalli</h3>
+                        <div class="branch-info">
+                            <p><strong>Address:</strong><br>456 Innovation Hub, Marathahalli<br>Bangalore - 560037</p>
+                            <p><strong>Phone:</strong><br>+91-88888-11111</p>
+                            <p><strong>Hours:</strong><br>Mon-Fri: 9 AM - 6 PM<br>Sat: 10 AM - 4 PM</p>
+                        </div>
+                        <button class="btn btn-outline" onclick="openCallbackModal()">Get Directions</button>
+                    </div>
+
+                    <!-- Branch 3 -->
+                    <div class="branch-card">
+                        <h3>Chennai - Anna Nagar</h3>
+                        <div class="branch-info">
+                            <p><strong>Address:</strong><br>789 Tech Center, Anna Nagar<br>Chennai - 600040</p>
+                            <p><strong>Phone:</strong><br>+91-77777-22222</p>
+                            <p><strong>Hours:</strong><br>Mon-Fri: 9 AM - 6 PM<br>Sat: 10 AM - 4 PM</p>
+                        </div>
+                        <button class="btn btn-outline" onclick="openCallbackModal()">Get Directions</button>
+                    </div>
+
+                    <!-- Branch 4 -->
+                    <div class="branch-card">
+                        <h3>Hyderabad - HITEC City</h3>
+                        <div class="branch-info">
+                            <p><strong>Address:</strong><br>321 Training Plaza, HITEC City<br>Hyderabad - 500081</p>
+                            <p><strong>Phone:</strong><br>+91-66666-33333</p>
+                            <p><strong>Hours:</strong><br>Mon-Fri: 9 AM - 6 PM<br>Sat: 10 AM - 4 PM</p>
+                        </div>
+                        <button class="btn btn-outline" onclick="openCallbackModal()">Get Directions</button>
+                    </div>
+
+                    <!-- Branch 5 -->
+                    <div class="branch-card">
+                        <h3>Pune - Hinjewadi</h3>
+                        <div class="branch-info">
+                            <p><strong>Address:</strong><br>654 Tech Academy, Hinjewadi<br>Pune - 411057</p>
+                            <p><strong>Phone:</strong><br>+91-55555-44444</p>
+                            <p><strong>Hours:</strong><br>Mon-Fri: 9 AM - 6 PM<br>Sat: 10 AM - 4 PM</p>
+                        </div>
+                        <button class="btn btn-outline" onclick="openCallbackModal()">Get Directions</button>
+                    </div>
+
+                    <!-- Branch 6 -->
+                    <div class="branch-card">
+                        <h3>Delhi - Noida</h3>
+                        <div class="branch-info">
+                            <p><strong>Address:</strong><br>987 Training Center, Noida<br>Delhi - 201301</p>
+                            <p><strong>Phone:</strong><br>+91-44444-55555</p>
+                            <p><strong>Hours:</strong><br>Mon-Fri: 9 AM - 6 PM<br>Sat: 10 AM - 4 PM</p>
+                        </div>
+                        <button class="btn btn-outline" onclick="openCallbackModal()">Get Directions</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-contact-section">
+            <div class="container">
+                <h2>Common Questions</h2>
+
+                <div class="accordion" id="contactFaqAccordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-faq="contact-1">
+                            What is the best way to reach Elevate Career?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-body" id="contact-faq-1" style="display: none;">
+                            <p>You can reach us through multiple channels: Call +91-99999-00000, email info@Elevate Career.edu, or fill out the contact form on this page. We typically respond within 24 hours. For urgent matters, call during office hours (9 AM - 6 PM IST, Mon-Fri).</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-faq="contact-2">
+                            When can I visit the training center?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-body" id="contact-faq-2" style="display: none;">
+                            <p>Our centers are open Monday to Friday, 9 AM - 6 PM IST, and Saturday 10 AM - 4 PM IST. We're closed on Sundays and public holidays. For a personal tour or counseling session, we recommend scheduling in advance by calling or filling out a callback request.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-faq="contact-3">
+                            How do I schedule a free counseling session?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-body" id="contact-faq-3" style="display: none;">
+                            <p>You can book a free counseling session by calling us at +91-99999-00000 or by clicking "Request a Call Back" on any page. Our career counselors will contact you within a few hours to understand your goals and recommend suitable courses.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-faq="contact-4">
+                            Do you offer trial classes?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-body" id="contact-faq-4" style="display: none;">
+                            <p>Yes, we offer free trial classes for most of our courses. During the trial, you'll experience our teaching style and interact with our trainers. Contact us to schedule a trial session for your preferred course.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-faq="contact-5">
+                            Can I get a course brochure?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-body" id="contact-faq-5" style="display: none;">
+                            <p>Yes, we provide comprehensive course brochures in PDF format. You can download them from the course pages or request them through email. Send your request to admissions@Elevate Career.edu with the course name, and we'll send it within 24 hours.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-faq="contact-6">
+                            How can I refer a friend?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-body" id="contact-faq-6" style="display: none;">
+                            <p>We have an exciting referral program! For every successful referral, both you and your friend receive special discounts on course fees. Contact our admissions team at +91-99999-00000 to learn more about our referral benefits and terms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Request Call Back Modal -->
+    <div class="modal" id="callbackModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2>Request a Call Back</h2>
+            <form id="callbackForm" class="callback-form">
+                <div class="form-group">
+                    <label for="cbName">Full Name *</label>
+                    <input type="text" id="cbName" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbMobile">Mobile Number *</label>
+                    <input type="tel" id="cbMobile" name="mobile" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbEmail">Email *</label>
+                    <input type="email" id="cbEmail" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cbDegree">Degree</label>
+                        <select id="cbDegree" name="degree">
+                            <option value="">Select Degree</option>
+                            <option value="BE/BTech">BE/BTech</option>
+                            <option value="BCA/BSc">BCA/BSc</option>
+                            <option value="BCom">BCom</option>
+                            <option value="MCA">MCA</option>
+                            <option value="ME/MTech">ME/MTech</option>
+                            <option value="MBA">MBA</option>
+                            <option value="MSc">MSc</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cbStream">Stream</label>
+                        <select id="cbStream" name="stream">
+                            <option value="">Select Stream</option>
+                            <option value="CS">CS</option>
+                            <option value="IT">IT</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="IS">IS</option>
+                            <option value="ME">ME</option>
+                            <option value="CIV">CIV</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cbCourse">Preferred Course</label>
+                    <input type="text" id="cbCourse" name="course" placeholder="e.g., Data Science, Java Full Stack">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cbCity">City</label>
+                        <input type="text" id="cbCity" name="city">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cbMode">Preferred Mode</label>
+                        <select id="cbMode" name="mode">
+                            <option value="">Select Mode</option>
+                            <option value="Online">Online</option>
+                            <option value="Classroom">Classroom</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="form-message" id="callbackMessage" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Elevate Career</h4>
+                    <p>Empowering IT careers with practical training, industry exposure, and guaranteed placement support since 2015.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📍 Bangalore, India</p>
+                    <p>📧 info@Elevate Career.edu</p>
+                    <p>📞 +91-99999-00000</p>
+                    <p>⏰ Mon-Fri: 9 AM - 6 PM IST</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elevate Career. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
