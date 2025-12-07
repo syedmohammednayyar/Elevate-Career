@@ -628,7 +628,7 @@ console.log('Elevate Career - Website loaded successfully!');
 ======================================== */
 
 (function() {
-    const STORAGE_KEY = 'techbridge_chat_history_v1';
+    const STORAGE_KEY = 'Elevate Career_chat_history_v1';
 
     // Basic knowledge/responses
     const KB = [
@@ -639,7 +639,7 @@ console.log('Elevate Career - Website loaded successfully!');
         {keys: ['courses','course','programs'], reply: "We offer Data Science, Java Full Stack, Python Full Stack, Software Testing and more — browse the <a href='courses.html'>Courses page</a>."},
         {keys: ['placement','placements','job','career'], reply: "We provide placement assistance: resume reviews, mock interviews and company referrals. Our placement team will guide you through the process."},
         {keys: ['fees','price','fee'], reply: "Course fees vary by program. For example, Data Science currently shows a discounted fee on the Data Science course card. For exact pricing, click 'Request Call Back' or contact admissions."},
-        {keys: ['contact','location','address'], reply: "You can reach us at info@techbridge.edu or +91-99999-00000. Our branches are listed on the Contact page."},
+        {keys: ['contact','location','address'], reply: "You can reach us at info@Elevate Career.edu or +91-99999-00000. Our branches are listed on the Contact page."},
         {keys: ['brochure','download'], reply: "You can download course brochures from the course pages or request one via the callback form."}
     ];
 
@@ -660,7 +660,7 @@ console.log('Elevate Career - Website loaded successfully!');
         panel.innerHTML = `
             <div class="chat-header">
                 <div>
-                    <div class="title">TechBridge Assistant</div>
+                    <div class="title">Elevate Career Assistant</div>
                     <div class="subtitle">Ask about courses, fees or placements</div>
                 </div>
                 <div>
@@ -696,7 +696,7 @@ console.log('Elevate Career - Website loaded successfully!');
                 // show welcome if first time
                 setTimeout(() => { input.focus(); }, 200);
                 if (getHistory().length === 0) {
-                    botReply("Hi! I'm TechBridge Assistant. How can I help you today? You can ask about courses, fees, or placements.");
+                    botReply("Hi! I'm Elevate Career Assistant. How can I help you today? You can ask about courses, fees, or placements.");
                 }
             }
         });
