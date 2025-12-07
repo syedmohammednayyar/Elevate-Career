@@ -13,10 +13,11 @@
     --warning-color: #f59e0b;
     --danger-color: #ef4444;
     
-    /* Backgrounds */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f9fafb;
-    --bg-tertiary: #f3f4f6;
+     /* Backgrounds (translucent to let page background image show through)
+         Slightly more transparent so the background photo is visible and vibrant */
+     --bg-primary: rgba(255, 255, 255, 0.78);
+     --bg-secondary: rgba(249, 250, 251, 0.68);
+     --bg-tertiary: rgba(243, 244, 246, 0.66);
     --bg-dark: #1f2937;
     
     /* Text Colors */
@@ -84,6 +85,24 @@ body {
 
 main {
     min-height: calc(100vh - 80px - 300px);
+}
+
+/* subtle page background image layer (shows through translucent section backgrounds) */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    /* Layer a soft gradient over the photo for warmth, then fall back to SVG */
+    background-image: linear-gradient(rgba(30,64,175,0.10), rgba(249,115,22,0.06)), url('../images/code-bg-photo.jpg'), url('../images/code-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.90; /* brighter and more visible */
+    pointer-events: none;
+    filter: saturate(1.05) contrast(1.05) brightness(1.02);
+    background-blend-mode: overlay, normal, normal;
 }
 
 /* Container */
