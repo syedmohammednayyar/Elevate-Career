@@ -618,3 +618,191 @@ if ('IntersectionObserver' in window) {
 }
 
 console.log('Elevate Career - Website loaded successfully!');
+
+/* ========================================
+   SIMPLE CHATBOT WIDGET (client-side, no backend)
+   - Injects a floating chat button and panel on all pages
+   - Uses keyword matching for canned responses
+   - Persists conversation in localStorage
+   - Simulates typing for better UX
+======================================== */
+
+(function() {
+    const STORAGE_KEY = 'techbridge_chat_history_v1';
+
+    // Basic knowledge/responses
+    const KB = [
+        {keys: ['data science','data'], reply: "Our Data Science program covers Python, statistics, ML, and 4+ real projects. See details on the <a href='courses.html#data-science'>Data Science page</a>."},
+        {keys: ['java','java full stack'], reply: "Java Full Stack covers core Java, Spring Boot and frontend essentials. Check <a href='courses.html#java-fullstack'>Java Full Stack</a>."},
+        {keys: ['python full stack','python'], reply: "Python Full Stack includes Django/Flask, REST APIs and deployment. See course details on the Courses page."},
+        {keys: ['testing','software testing','qa'], reply: "Our Software Testing course covers manual testing, Selenium automation and API testing. View details on the Courses page."},
+        {keys: ['courses','course','programs'], reply: "We offer Data Science, Java Full Stack, Python Full Stack, Software Testing and more — browse the <a href='courses.html'>Courses page</a>."},
+        {keys: ['placement','placements','job','career'], reply: "We provide placement assistance: resume reviews, mock interviews and company referrals. Our placement team will guide you through the process."},
+        {keys: ['fees','price','fee'], reply: "Course fees vary by program. For example, Data Science currently shows a discounted fee on the Data Science course card. For exact pricing, click 'Request Call Back' or contact admissions."},
+        {keys: ['contact','location','address'], reply: "You can reach us at info@techbridge.edu or +91-99999-00000. Our branches are listed on the Contact page."},
+        {keys: ['brochure','download'], reply: "You can download course brochures from the course pages or request one via the callback form."}
+    ];
+
+    // Create UI
+    function createChatUI() {
+        const widget = document.createElement('div');
+        widget.className = 'chat-widget';
+
+        const button = document.createElement('button');
+        button.className = 'chat-button';
+        button.title = 'Chat with us';
+        button.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+        const panel = document.createElement('div');
+        panel.className = 'chat-panel';
+        panel.style.display = 'none';
+
+        panel.innerHTML = `
+            <div class="chat-header">
+                <div>
+                    <div class="title">TechBridge Assistant</div>
+                    <div class="subtitle">Ask about courses, fees or placements</div>
+                </div>
+                <div>
+                    <button class="chat-close" aria-label="Close chat">✕</button>
+                </div>
+            </div>
+            <div class="chat-messages" role="log" aria-live="polite"></div>
+            <div class="chat-quick">
+                <button data-quick="courses">View Courses</button>
+                <button data-quick="data science">Data Science</button>
+                <button data-quick="placement">Placement Support</button>
+                <button data-quick="contact">Contact Us</button>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message..." aria-label="Type a message">
+                <button class="send">Send</button>
+            </div>
+        `;
+
+        widget.appendChild(panel);
+        widget.appendChild(button);
+        document.body.appendChild(widget);
+
+        // Event listeners
+        const closeBtn = panel.querySelector('.chat-close');
+        const sendBtn = panel.querySelector('.send');
+        const input = panel.querySelector('input[type="text"]');
+        const messages = panel.querySelector('.chat-messages');
+
+        button.addEventListener('click', () => {
+            panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+            if (panel.style.display !== 'none') {
+                // show welcome if first time
+                setTimeout(() => { input.focus(); }, 200);
+                if (getHistory().length === 0) {
+                    botReply("Hi! I'm TechBridge Assistant. How can I help you today? You can ask about courses, fees, or placements.");
+                }
+            }
+        });
+
+        closeBtn.addEventListener('click', () => { panel.style.display = 'none'; });
+
+        sendBtn.addEventListener('click', () => { handleUserInput(input, messages); });
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleUserInput(input, messages); });
+
+        panel.querySelectorAll('.chat-quick button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const q = btn.getAttribute('data-quick');
+                addMessage('user', q);
+                processUserMessage(q);
+            });
+        });
+
+        // Load history
+        loadHistoryToUI(messages);
+    }
+
+    function handleUserInput(input, messages) {
+        const text = input.value.trim();
+        if (!text) return;
+        addMessage('user', text);
+        input.value = '';
+        processUserMessage(text);
+    }
+
+    function addMessage(sender, text) {
+        const panel = document.querySelector('.chat-panel');
+        if (!panel) return;
+        const messages = panel.querySelector('.chat-messages');
+        const msg = document.createElement('div');
+        msg.className = 'message ' + (sender === 'bot' ? 'bot' : 'user');
+        msg.innerHTML = text;
+        messages.appendChild(msg);
+        messages.scrollTop = messages.scrollHeight;
+        saveToHistory({sender, text, ts: Date.now()});
+    }
+
+    function botReply(text) {
+        const panel = document.querySelector('.chat-panel');
+        if (!panel) return;
+        const messages = panel.querySelector('.chat-messages');
+        // typing indicator
+        const typing = document.createElement('div');
+        typing.className = 'message bot';
+        typing.textContent = 'Typing...';
+        messages.appendChild(typing);
+        messages.scrollTop = messages.scrollHeight;
+
+        setTimeout(() => {
+            messages.removeChild(typing);
+            addMessage('bot', text);
+        }, 700 + Math.min(1200, text.length * 20));
+    }
+
+    function processUserMessage(raw) {
+        const text = raw.toLowerCase();
+        // simple keyword matching
+        for (const item of KB) {
+            for (const k of item.keys) {
+                if (text.includes(k)) {
+                    return botReply(item.reply);
+                }
+            }
+        }
+
+        // fallback suggestions
+        const fallback = `Sorry, I didn't catch that. You can try: <b>View Courses</b>, <b>Data Science</b>, <b>Placement</b>, or <b>Contact</b>.
+            <div style="margin-top:8px;"><a href='contact.html'>Contact admissions</a> or click <button onclick="document.querySelector('.chat-quick button[data-quick=contact]').click()" style="margin-left:6px;padding:6px 8px;border-radius:6px;border:1px solid #ddd;background:#fff;">Request Call Back</button></div>`;
+        botReply(fallback);
+    }
+
+    // LocalStorage persistence
+    function saveToHistory(entry) {
+        try {
+            const h = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            h.push(entry);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(h.slice(-200))); // keep last 200 messages
+        } catch (e) { /* ignore */ }
+    }
+
+    function getHistory() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch (e) { return []; }
+    }
+
+    function loadHistoryToUI(messages) {
+        const hist = getHistory();
+        const panel = document.querySelector('.chat-panel');
+        if (!panel) return;
+        const msgs = panel.querySelector('.chat-messages');
+        hist.forEach(h => {
+            const div = document.createElement('div');
+            div.className = 'message ' + (h.sender === 'bot' ? 'bot' : 'user');
+            div.innerHTML = h.text;
+            msgs.appendChild(div);
+        });
+        msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    // Initialize widget on DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+        createChatUI();
+    });
+
+})();
+
