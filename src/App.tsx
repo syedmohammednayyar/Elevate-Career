@@ -3,14 +3,12 @@ import {
   motion,
   useInView,
   useMotionValue,
-  useMotionValueEvent,
   useReducedMotion,
   useScroll,
   useTransform,
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 import {
   ArrowRight,
   BookOpen,
@@ -120,9 +118,9 @@ const resources = [
 
 const faqs = [
   {
-    question: "Is Elevate Career a recruitment agency?",
+    question: "Is Elevate Career only a recruitment agency?",
     answer:
-      "No. Elevate Career is a career consultancy and career growth partner. We help individuals prepare, apply, and navigate opportunities, but we do not directly hire people or own job openings.",
+      "We're much more than that. Alongside connecting you with the right opportunities, Elevate Career supports you through your entire career path — personalized consulting, resume and LinkedIn building, and interview preparation — guiding you every step of the way until you get placed and beyond.",
   },
   {
     question: "Who can work with Elevate Career?",
@@ -130,45 +128,11 @@ const faqs = [
       "Students, fresh graduates, early-career professionals, and experienced professionals who want clearer direction, stronger career materials, and better preparation for opportunities.",
   },
   {
-    question: "Can you guarantee a job?",
-    answer:
-      "No genuine career partner should promise that. We focus on improving clarity, confidence, employability, preparation, and application strategy so you can pursue opportunities more effectively.",
-  },
-  {
     question: "What happens in a career consultation?",
     answer:
       "We learn about your background, goals, challenges, and current materials, then recommend a practical path across guidance, resume support, interview preparation, LinkedIn, or roadmap planning.",
   },
 ];
-
-function useLenis() {
-  const reduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (reduceMotion) return;
-
-    const lenis = new Lenis({
-      duration: 1.08,
-      easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
-      smoothWheel: true,
-      wheelMultiplier: 0.85,
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    const update = (time: number) => {
-      lenis.raf(time * 1000);
-    };
-
-    gsap.ticker.add(update);
-    gsap.ticker.lagSmoothing(0);
-
-    return () => {
-      gsap.ticker.remove(update);
-      lenis.destroy();
-    };
-  }, [reduceMotion]);
-}
 
 function useGsapReveals() {
   const reduceMotion = useReducedMotion();
@@ -180,15 +144,15 @@ function useGsapReveals() {
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((node) => {
         gsap.fromTo(
           node,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 16 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.82,
-            ease: "expo.out",
+            duration: 0.5,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: node,
-              start: "top 88%",
+              start: "top 92%",
               once: true,
             },
           },
@@ -314,9 +278,9 @@ function WordReveal({
       {words.map((word, index) => (
         <span className="word-mask" aria-hidden="true" key={`${word}-${index}`} ref={index === 0 ? triggerRef : undefined}>
           <motion.span
-            initial={{ opacity: 0, y: 36 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
-            transition={{ duration: 0.78, delay: delay + index * 0.035, ease: [0.19, 1, 0.22, 1] }}
+            initial={{ opacity: 0, y: 28 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+            transition={{ duration: 0.5, delay: delay + index * 0.025, ease: [0.19, 1, 0.22, 1] }}
           >
             {word}
           </motion.span>
@@ -565,172 +529,102 @@ function WhyElevate() {
 }
 
 function Services() {
-  const ref = useRef<HTMLElement>(null);
-  const railRef = useRef<HTMLDivElement>(null);
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const [railTravel, setRailTravel] = useState(0);
-  const reduceMotion = useReducedMotion();
-  const inView = useInView(ref, { amount: 0.2 });
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const railX = useTransform(scrollYProgress, [0.06, 0.94], [0, -railTravel]);
-  const railProgress = useTransform(scrollYProgress, [0.06, 0.94], [0, 1]);
-
-  useEffect(() => {
-    const rail = railRef.current;
-    const viewport = viewportRef.current;
-    if (!rail || !viewport) return;
-
-    const updateTravel = () => {
-      const styles = getComputedStyle(viewport);
-      const padLeft = parseFloat(styles.paddingLeft) || 0;
-      const padRight = parseFloat(styles.paddingRight) || 0;
-      const innerWidth = viewport.clientWidth - padLeft - padRight;
-      setRailTravel(Math.max(0, rail.scrollWidth - innerWidth));
-    };
-
-    updateTravel();
-    const observer = new ResizeObserver(updateTravel);
-    observer.observe(rail);
-    observer.observe(viewport);
-    window.addEventListener("resize", updateTravel);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updateTravel);
-    };
-  }, []);
+  const onCardMove = (event: React.MouseEvent<HTMLElement>) => {
+    const card = event.currentTarget;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+    card.style.setProperty("--my", `${event.clientY - rect.top}px`);
+  };
 
   return (
-    <section className="services" id="services" ref={ref}>
-      <div className="services__sticky section-shell">
-        <div className="section-intro">
-          <div>
-            <div className="section-kicker" data-reveal>
-              <UserCheck size={16} aria-hidden="true" />
-              Our services
-            </div>
-            <WordReveal className="section-title">Personal career support for every important step.</WordReveal>
+    <section className="services section-shell" id="services">
+      <div className="section-intro">
+        <div>
+          <div className="section-kicker" data-reveal>
+            <UserCheck size={16} aria-hidden="true" />
+            Our services
           </div>
-          <p className="section-copy" data-reveal>
-            Focused, practical services designed to help you discover, prepare, apply, succeed, and grow.
-          </p>
+          <WordReveal className="section-title">Personal career support for every important step.</WordReveal>
         </div>
+        <p className="section-copy" data-reveal>
+          Focused, practical services designed to help you discover, prepare, apply, succeed, and grow.
+        </p>
+      </div>
 
-        <div className="services-rail-shell" ref={viewportRef}>
-          <motion.div className="services-rail" ref={railRef} style={{ x: reduceMotion ? 0 : railX }}>
-            {services.map((service, index) => {
-              const Icon = service.icon;
+      <div className="services-grid">
+        {services.map((service, index) => {
+          const Icon = service.icon;
 
-              return (
-                <motion.article
-                  className="service-card"
-                  key={service.title}
-                  data-cursor="active"
-                  initial={{ opacity: 0, y: 32 }}
-                  animate={inView || reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
-                  transition={{ duration: reduceMotion ? 0 : 0.55, delay: index * 0.06, ease: [0.19, 1, 0.22, 1] }}
-                >
-                  <span className="service-card__number">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="service-card__icon">
-                    <Icon size={22} aria-hidden="true" />
-                  </span>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                  <span className="service-card__meta">
-                    <Check size={15} aria-hidden="true" />
-                    Career-ready support
-                  </span>
-                </motion.article>
-              );
-            })}
-          </motion.div>
-        </div>
-
-        <div className="services-rail__progress" aria-hidden="true">
-          <motion.span style={{ scaleX: reduceMotion ? 1 : railProgress }} />
-        </div>
+          return (
+            <motion.article
+              className="service-card"
+              key={service.title}
+              data-cursor="active"
+              onMouseMove={onCardMove}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: (index % 3) * 0.08, ease: [0.19, 1, 0.22, 1] }}
+            >
+              <span className="service-card__number">{String(index + 1).padStart(2, "0")}</span>
+              <span className="service-card__icon">
+                <Icon size={22} aria-hidden="true" />
+              </span>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+              <span className="service-card__meta">
+                <Check size={15} aria-hidden="true" />
+                Career-ready support
+              </span>
+            </motion.article>
+          );
+        })}
       </div>
     </section>
   );
 }
 
-function JourneySceneCard({
-  step,
-  index,
-  activeIndex,
-}: {
-  step: (typeof journeySteps)[number];
-  index: number;
-  activeIndex: number;
-}) {
-  const [title, text] = step;
-  const reduceMotion = useReducedMotion();
-  const isActive = index === activeIndex;
-  const direction = index < activeIndex ? -1 : 1;
-
-  return (
-    <motion.article
-      className={`journey-scene${isActive ? " journey-scene--active" : ""}`}
-      animate={{
-        opacity: isActive ? 1 : 0,
-        y: isActive ? 0 : direction * 42,
-        scale: isActive ? 1 : 0.96,
-        rotate: isActive ? 0 : direction * -1.4,
-        filter: isActive ? "blur(0px)" : "blur(9px)",
-        zIndex: isActive ? 2 : 1,
-      }}
-      transition={{ duration: reduceMotion ? 0 : isActive ? 0.58 : 0.22, ease: [0.19, 1, 0.22, 1] }}
-    >
-      <span>Step {String(index + 1).padStart(2, "0")}</span>
-      <h3>{title}</h3>
-      <p>{text}</p>
-    </motion.article>
-  );
-}
-
 function CareerJourney() {
-  const ref = useRef<HTMLElement>(null);
-  const [activeStep, setActiveStep] = useState(0);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const beamScale = useTransform(scrollYProgress, [0, 1], [0.08, 1]);
-  const stageGlow = useTransform(scrollYProgress, [0, 0.5, 1], [0.16, 0.28, 0.16]);
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const nextStep = Math.min(journeySteps.length - 1, Math.max(0, Math.round(latest * (journeySteps.length - 1))));
-    setActiveStep((currentStep) => (currentStep === nextStep ? currentStep : nextStep));
-  });
+  const ref = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end center"] });
+  const fillWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="journey" id="journey" ref={ref}>
-      <div className="journey__sticky section-shell">
-        <div className="section-kicker">
+    <section className="journey section-shell" id="journey">
+      <div className="journey__head">
+        <div className="section-kicker" data-reveal>
           <Map size={16} aria-hidden="true" />
           Career success journey
         </div>
-        <div className="journey__layout">
-          <div>
-            <WordReveal className="section-title">A guided path from uncertainty to opportunity.</WordReveal>
-            <p className="section-copy">
-              Career growth becomes less overwhelming when the next step is visible. This journey is designed to help
-              you move from discovery to preparation, application, interviews, and long-term growth.
-            </p>
+        <WordReveal className="section-title">A guided path from uncertainty to opportunity.</WordReveal>
+        <p className="section-copy" data-reveal>
+          Career growth becomes less overwhelming when the next step is visible — a clear path from discovery to
+          preparation, application, interviews, and long-term growth.
+        </p>
+      </div>
+
+      <div className="timeline" ref={ref}>
+        <div className="timeline__row">
+          <div className="timeline__track" aria-hidden="true">
+            <motion.div className="timeline__fill" style={{ width: reduceMotion ? "100%" : fillWidth }} />
           </div>
-          <div className="journey-stage" data-reveal>
-            <motion.div className="journey-stage__glow" style={{ opacity: stageGlow }} aria-hidden="true" />
-            <motion.div className="journey-stage__beam" style={{ scaleY: beamScale }} aria-hidden="true" />
-            <div className="journey-stage__shadow-card journey-stage__shadow-card--one" aria-hidden="true" />
-            <div className="journey-stage__shadow-card journey-stage__shadow-card--two" aria-hidden="true" />
-            {journeySteps.map((step, index) => (
-              <JourneySceneCard step={step} index={index} activeIndex={activeStep} key={step[0]} />
-            ))}
-            <div className="journey-stage__dots" aria-label="Career journey steps">
-              {journeySteps.map(([title], index) => (
-                <span className={activeStep === index ? "is-active" : undefined} key={title}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              ))}
-            </div>
-          </div>
+          {journeySteps.map(([title, text], index) => (
+            <motion.div
+              className="timeline__item"
+              key={title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.45, delay: index * 0.05, ease: [0.19, 1, 0.22, 1] }}
+            >
+              <div className="timeline__node">{String(index + 1).padStart(2, "0")}</div>
+              <div className="timeline__card">
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -1033,7 +927,6 @@ function Intro({ onSkip }: { onSkip: () => void }) {
 }
 
 function App() {
-  useLenis();
   useGsapReveals();
   const [intro, setIntro] = useState(() => {
     if (typeof window === "undefined") return false;
