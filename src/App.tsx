@@ -80,6 +80,11 @@ const services = [
     title: "Career Roadmap Planning",
     text: "Personalized 6-24 month career plans with milestones, skills, certifications, and growth objectives.",
   },
+  {
+    icon: UserCheck,
+    title: "Career Opportunities",
+    text: "Connect with meaningful job opportunities that align with your skills, goals, and career aspirations.",
+  },
 ];
 
 const journeySteps = [
