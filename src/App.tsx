@@ -118,12 +118,12 @@ const resources = [
 
 const faqs = [
   {
-    question: "Is Elevate Career only a recruitment agency?",
+    question: "Is RecronixHR only a recruitment agency?",
     answer:
-      "We're much more than that. Alongside connecting you with the right opportunities, Elevate Career supports you through your entire career path — personalized consulting, resume and LinkedIn building, and interview preparation — guiding you every step of the way until you get placed and beyond.",
+      "We're much more than that. Alongside connecting you with the right opportunities, RecronixHR supports you through your entire career path — personalized consulting, resume and LinkedIn building, and interview preparation — guiding you every step of the way until you get placed and beyond.",
   },
   {
-    question: "Who can work with Elevate Career?",
+    question: "Who can work with RecronixHR?",
     answer:
       "Students, fresh graduates, early-career professionals, and experienced professionals who want clearer direction, stronger career materials, and better preparation for opportunities.",
   },
@@ -295,8 +295,8 @@ function Header() {
 
   return (
     <header className="site-header">
-      <a className="brand" href="#top" aria-label="Elevate Career home">
-        <img className="brand__logo" src={logo} alt="Elevate Career" />
+      <a className="brand" href="#top" aria-label="RecronixHR home">
+        <img className="brand__logo" src={logo} alt="RecronixHR" />
       </a>
 
       <nav className="nav" aria-label="Primary navigation">
@@ -358,7 +358,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.42, duration: 0.74, ease: [0.19, 1, 0.22, 1] }}
         >
-          Elevate Career helps students and professionals build stronger resumes, prepare for interviews, optimize
+          RecronixHR helps students and professionals build stronger resumes, prepare for interviews, optimize
           LinkedIn profiles, and secure meaningful career opportunities through expert guidance and personalized support.
         </motion.p>
         <motion.div
@@ -498,11 +498,11 @@ function WhyElevate() {
       <div className="why-simple__head">
         <div className="section-kicker" data-reveal>
           <Sparkle size={16} aria-hidden="true" />
-          Why Elevate Career
+          Why RecronixHR
         </div>
         <WordReveal className="section-title">We don't just help you find a job. We help you build a career.</WordReveal>
         <p className="section-copy" data-reveal>
-          Elevate Career is a career partner for people who want direction, confidence, employability, and practical
+          RecronixHR is a career partner for people who want direction, confidence, employability, and practical
           support. We help you understand where you are, improve how you present yourself, and navigate the next
           opportunity with preparation rather than guesswork.
         </p>
@@ -734,7 +734,7 @@ function Contact() {
     }
 
     const text = [
-      "Hi Elevate Career, I'd like to book a consultation.",
+      "Hi RecronixHR, I'd like to book a consultation.",
       "",
       `Name: ${name}`,
       `Email: ${email}`,
@@ -916,7 +916,7 @@ function Intro({ onSkip }: { onSkip: () => void }) {
         <motion.img
           className="intro__logo"
           src={logo}
-          alt="Elevate Career"
+          alt="RecronixHR"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.7, ease: [0.19, 1, 0.22, 1] }}
@@ -971,8 +971,8 @@ function App() {
         <Contact />
       </main>
       <footer className="footer section-shell">
-        <a className="footer__brand" href="#top" aria-label="Elevate Career home">
-          <img src={logo} alt="Elevate Career" />
+        <a className="footer__brand" href="#top" aria-label="RecronixHR home">
+          <img src={logo} alt="RecronixHR" />
         </a>
         <span>Career growth starts with the right guidance.</span>
         <span>{year}</span>
