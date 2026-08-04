@@ -169,6 +169,58 @@ function useGsapReveals() {
   }, [reduceMotion]);
 }
 
+const siteTitle = "RecronixHR | Learn. Grow. Lead.";
+const siteDescription =
+  "RecronixHR helps students and professionals build stronger resumes, prepare for interviews, optimize LinkedIn profiles, and grow with expert career guidance.";
+
+function SeoMetadata() {
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const canonicalUrl = url.origin + url.pathname + url.search;
+    const imageUrl = new URL(`${import.meta.env.BASE_URL}og-image.png`, url.origin).toString();
+
+    document.title = siteTitle;
+    document.documentElement.lang = "en";
+
+    const setMeta = (selector: string, value: string, attribute: "name" | "property" = "name") => {
+      let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}='${selector}']`);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attribute, selector);
+        document.head.appendChild(element);
+      }
+      element.setAttribute("content", value);
+    };
+
+    const setLink = (selector: string, href: string, rel: string) => {
+      let element = document.head.querySelector<HTMLLinkElement>(`link[rel='${rel}']`);
+      if (!element) {
+        element = document.createElement("link");
+        element.rel = rel;
+        document.head.appendChild(element);
+      }
+      element.setAttribute(selector, href);
+    };
+
+    setLink("href", canonicalUrl, "canonical");
+    setMeta("description", siteDescription);
+    setMeta("robots", "index,follow");
+    setMeta("theme-color", "#1f665c");
+    setMeta("type", "website", "property");
+    setMeta("site_name", "RecronixHR", "property");
+    setMeta("title", siteTitle, "property");
+    setMeta("description", siteDescription, "property");
+    setMeta("url", canonicalUrl, "property");
+    setMeta("image", imageUrl, "property");
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", siteTitle);
+    setMeta("twitter:description", siteDescription);
+    setMeta("twitter:image", imageUrl);
+  }, []);
+
+  return null;
+}
+
 function AmbientBackground() {
   return (
     <div className="ambient" aria-hidden="true">
@@ -962,6 +1014,7 @@ function App() {
 
   return (
     <>
+      <SeoMetadata />
       <AnimatePresence>{intro && <Intro key="intro" onSkip={() => setIntro(false)} />}</AnimatePresence>
       <AmbientBackground />
       <CustomCursor />
